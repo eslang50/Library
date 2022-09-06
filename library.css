@@ -27,7 +27,7 @@ h1 {
 .grid-container > div {
   border: 1px black solid;
   padding: 1em;
-  height: fit-content;
+  
   font-size: 1.5em;
   background-color: white;
   border-radius: 5px;
@@ -95,5 +95,5 @@ button:hover {
 input, select {
   border-radius: 5px;
   border: rgb(182, 179, 179) 1px solid;  
-  padding: 4px 0;
+  padding: 4px 6px;
 }
