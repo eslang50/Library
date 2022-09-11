@@ -1,18 +1,17 @@
 let myLibrary = [];
 let key = 0;
 
-const HP1 = new Book("Harry Potter and the Sorceror's Stone", 'J.K. Rowling', 223, true)
-
 const grid = document.querySelector('.grid-container');
 
 const form = document.querySelector('form');
 
-
-function Book(title, author, pages, status) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
+class Book {
+  constructor(title, author, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+  }
 }
 
 function addBookToLibrary(Book) {
@@ -122,6 +121,8 @@ function cleardisplay() {
     grid.removeChild(grid.lastChild);
   }
 }
+
+const HP1 = new Book("Harry Potter and the Sorceror's Stone", 'J.K. Rowling', 223, true)
 
 addBookToLibrary(HP1);
 
