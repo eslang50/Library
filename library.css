@@ -57,13 +57,13 @@ a {
 }
 
 label {
-  padding-right: 1em; 
   font-size: 1.2em;
+  display: block;
 }
 
 form {
   border: gray 1px solid;
-  padding: 0 1em 1em 1em;
+  padding: 0 2em 1em 2em;
   height: fit-content;
   background-color:aliceblue; 
   border-radius: 5px;
