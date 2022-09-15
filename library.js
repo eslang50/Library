@@ -6,9 +6,9 @@ const grid = document.querySelector('.grid-container');
 const form = document.querySelector('form');
 
 class Book {
-  constructor(title, author, pages, status) {
-    this.title = title;
+  constructor(author, title, pages, status) {
     this.author = author;
+    this.title = title;
     this.pages = pages;
     this.status = status;
   }
@@ -24,6 +24,7 @@ function displayBooks() {
   myLibrary.forEach((book, key) =>  {
     
     const display = document.createElement('div');
+    display.classList.add('book');
     display.setAttribute('data-index', `${key}`);
 
     const removeBtn = document.createElement('button');
@@ -32,13 +33,19 @@ function displayBooks() {
     const readBtn = document.createElement('button');
     readBtn.classList.add('readButton');
 
+    const btnContainer = document.createElement('div');
+
+
     removeBtn.innerHTML = "Remove";
     readBtn.innerHTML = "Change read status"
 
-    const author = document.createElement('div');
     const title = document.createElement('div');
+    const author = document.createElement('div');
     const pages = document.createElement('div');
     const read = document.createElement('div');
+    
+    const labelContainer = document.createElement('div')
+
     
     let stat = 'read';
     if(!book.status) {
@@ -50,16 +57,17 @@ function displayBooks() {
     pages.innerHTML = `<strong>Pages:</strong> ${book.pages}`;
     read.innerHTML = `<strong>Status:</strong> ${stat}`
    
+    labelContainer.appendChild(title);
+    labelContainer.appendChild(author);
+    labelContainer.appendChild(pages)
+    labelContainer.appendChild(read);
 
-    display.appendChild(author);
-    display.appendChild(title);
-    display.appendChild(pages)
-    display.appendChild(read);
-
+    display.appendChild(labelContainer);
     grid.appendChild(display);
 
-    display.appendChild(readBtn)
+    display.appendChild(readBtn);
     display.appendChild(removeBtn);
+    
   });
 
   const removeButtons = document.querySelectorAll('.removeButton');
@@ -73,11 +81,13 @@ function displayBooks() {
   const changeStatButton = document.querySelectorAll('.readButton');
   changeStatButton.forEach((btn) => {
     btn.addEventListener('click', function(e) {
-      const current = btn.parentNode.getAttribute('data-index');
+      const current = (btn.parentNode.getAttribute('data-index'));
       console.log(current);
-      updateBook(current)
+      updateBook(current);
     })
   })
+
+  
 }
 
 function updateBook(index) {
@@ -97,15 +107,17 @@ function submitForm() {
 
   const pages = document.getElementById('pages').value;
 
-  const stat = document.getElementById('status').value;
+  let stat;
 
-  let tf = false;
-
-  if(stat == 'Yes') {
-    tf = true;
+  if(document.getElementById('yes').checked) {
+    stat = true;
   }
 
-  const newBook = new Book(author, title, pages, tf); 
+  if(document.getElementById('no').checked) {
+    stat = false;
+  }
+
+  const newBook = new Book(author, title, pages, stat); 
 
   addBookToLibrary(newBook);
 
@@ -122,7 +134,7 @@ function cleardisplay() {
   }
 }
 
-const HP1 = new Book("Harry Potter and the Sorceror's Stone", 'J.K. Rowling', 223, true)
+const HP1 = new Book('J.K. Rowling', "Harry Potter and the Sorceror's Stone", 223, true)
 
 addBookToLibrary(HP1);
 

@@ -15,24 +15,29 @@
       <form action="#" method="get" onsubmit="return submitForm()">
         <h1>New Book</h1>
         <div class="input">
-          <label for="author">Author:</label>
-          <input type="text" name="author" id="author" required>
-        </div>
-        <div class="input">
           <label for="title">Title:</label>
           <input type="text" name="title" id="title" required>
+        </div>
+        <div class="input">
+          <label for="author">Author:</label>
+          <input type="text" name="author" id="author" required>
         </div>
         <div class="input">
           <label for="pages">Number of pages?</label>
           <input type="number" name="pages" id="pages" required>
         </div>
         <div class="input">
-          <label for="status">Have you read this book?</label>
-          <select name="status" id="status">
-            <option value=""></option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
+          <span>Have you read this book?</span> 
+          <div class="read">
+            <div>
+              <input type="radio" id="yes"  name="select" value="yes">
+              <label for="yes">Yes</label>
+            </div>
+            <div>
+              <input type="radio" id="no"  name="select" value="no">
+              <label for="no">No</label>
+            </div>
+          </div>
         </div>
         <button id="submitBtn" type="submit">Submit</button>
       </form>

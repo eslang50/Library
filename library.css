@@ -52,11 +52,29 @@ a {
   margin-left: 2em;
 }
 
-.input {
-  margin-top: 1.5em;
+.book {
+  display: grid;
+  grid-template-rows: 7fr 1fr 1fr;
+  row-gap: 5px;
 }
 
-label {
+.read input {
+  width: 18px;
+  margin: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input {
+  margin-top: 1.5em;
+  display: block;
+}
+
+label, span {
   font-size: 1.2em;
   display: block;
 }
@@ -72,7 +90,6 @@ form {
 button {
   display: block;
   margin: auto;
-  margin-top: 1.5em;
   padding: .5em 1em;
   font-family: 'Nunito', sans-serif;
   background-color: var(--red-color);
@@ -96,4 +113,53 @@ input, select {
   border-radius: 5px;
   border: rgb(182, 179, 179) 1px solid;  
   padding: 4px 6px;
+}
+
+.read {
+  margin: 1em 0;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+
+.read > div{
+  display: flex;
+  gap: .5em;
+}
+
+@media screen and (max-width: 480px) {
+  .display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    overflow: hidden;
+    gap: 1em;
+  }
+
+  .grid-container > div, label, button, span {
+    font-size: .75em;
+  }
+
+  span {
+    display: flex;
+    justify-content: center;
+  }
+
+  .book > div {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  h1 {
+    font-size: 1em;
+  }
+
+  .form-container {
+    margin: 0;
+  }
+
 }
