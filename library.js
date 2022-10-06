@@ -18,9 +18,16 @@ function addBookToLibrary(Book) {
   myLibrary.push(Book);
 }
 
-function displayBooks() {
-  cleardisplay();
+if (localStorage.getItem('books') === null) {
+  myLibrary = [];
+} else {
+  const bookStorage = JSON.parse(localStorage.getItem('books'));
+  myLibrary = bookStorage;
+}
 
+function displayBooks() {
+  localStorage.setItem('books', JSON.stringify(myLibrary))
+  cleardisplay();
   myLibrary.forEach((book, key) =>  {
     
     const display = document.createElement('div');
@@ -134,9 +141,6 @@ function cleardisplay() {
   }
 }
 
-const HP1 = new Book('J.K. Rowling', "Harry Potter and the Sorceror's Stone", 223, true)
-
-addBookToLibrary(HP1);
 
 displayBooks();
 
