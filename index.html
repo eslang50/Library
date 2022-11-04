@@ -14,17 +14,20 @@
     <div class="form-container">
       <form action="#" method="get" onsubmit="return submitForm()">
         <h1>New Book</h1>
-        <div class="input">
+        <div class="input" data-error="Please enter a book title">
           <label for="title">Title:</label>
-          <input type="text" name="title" id="title" required>
+          <input type="text" name="title" id="title">
+          <div id="title-error" class="error"></div>
         </div>
         <div class="input">
           <label for="author">Author:</label>
-          <input type="text" name="author" id="author" required>
+          <input type="text" name="author" id="author">
+          <div id="author-error" class="error"></div>
         </div>
         <div class="input">
           <label for="pages">Number of pages?</label>
-          <input type="number" name="pages" id="pages" required>
+          <input type="number" name="pages" id="pages">
+          <div id="pages-error" class="error"></div>
         </div>
         <div class="input">
           <span>Have you read this book?</span> 

@@ -127,6 +127,10 @@ input, select {
   gap: .5em;
 }
 
+.error {
+  color: red;
+}
+
 @media screen and (max-width: 480px) {
   .display {
     display: flex;
@@ -163,3 +167,5 @@ input, select {
   }
 
 }
+
+
