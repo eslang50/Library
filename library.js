@@ -94,7 +94,6 @@ function displayBooks() {
     })
   })
 
-  
 }
 
 function updateBook(index) {
@@ -106,6 +105,17 @@ function removeBook(index) {
   myLibrary.splice(index, 1);
   displayBooks();
 }
+
+// form.addEventListener('submit', function(event) {
+  
+//   const titleInput = document.getElementById('title')
+//   const titleError = document.getElementById('title-error')
+//   titleInput.addEventListener('input', function(event) {
+
+//   })
+// })
+
+
 
 function submitForm() {
   const author = document.getElementById('author').value;
@@ -124,6 +134,34 @@ function submitForm() {
     stat = false;
   }
 
+  const titleError = document.getElementById('title-error')
+  const authorError = document.getElementById('author-error')
+  const pagesError = document.getElementById('pages-error')
+
+  if(title === "") {
+    titleError.textContent = 'Please enter a book title'
+    return false
+  }
+  else {
+    titleError.textContent = ''
+  }
+
+  if(author === "") {
+    authorError.textContent = "Please enter the author's name"
+    return false
+  }
+  else {
+    authorError.textContent = ''
+  }
+
+  if(pages === "") {
+    pagesError.textContent = 'Please enter the number of pages in the book'
+    return false
+  }
+  else {
+    pagesError.textContent = ''
+  }
+  
   const newBook = new Book(author, title, pages, stat); 
 
   addBookToLibrary(newBook);
@@ -140,7 +178,6 @@ function cleardisplay() {
     grid.removeChild(grid.lastChild);
   }
 }
-
 
 displayBooks();
 
